@@ -1,3 +1,10 @@
+// Coordenadas do Auditório Master das FIP (Patos, PB), resolvidas a partir
+// do link do Google Maps. Usar lat/lng direto é mais confiável do que
+// buscar por texto — o mapa nunca erra o lugar.
+const VENUE_LAT = -7.0198851;
+const VENUE_LNG = -37.2789069;
+const VENUE_MAPS_LINK = 'https://maps.app.goo.gl/DdaLQtUvbPZ8VSNW8';
+
 export default function Venue({ config }) {
   return (
     <section id="local">
@@ -8,7 +15,7 @@ export default function Venue({ config }) {
         <div className="venue">
           <div className="venue-card">
             <h3>{config.locationLabel}</h3>
-            <div className="addr">Centro Universitário de Patos · Patos, PB</div>
+            <div className="addr">Auditório Master das FIP · Patos, PB</div>
             <ul className="venue-list">
               <li><b>Credenciamento</b> A partir das 18h00, no saguão de entrada.</li>
               <li><b>Estacionamento</b> Vagas gratuitas no pátio interno do campus.</li>
@@ -17,8 +24,18 @@ export default function Venue({ config }) {
             </ul>
           </div>
           <div className="venue-map">
-            <span className="pin" />
-            <span className="pin-label">{config.locationLabel} — Patos, PB</span>
+            <iframe
+              title="Mapa do local do evento"
+              src={`https://www.google.com/maps?q=${VENUE_LAT},${VENUE_LNG}&z=17&output=embed`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="venue-map-caption">
+              <span>{config.locationLabel} — Patos, PB</span>
+              <a href={VENUE_MAPS_LINK} target="_blank" rel="noopener noreferrer">
+                Abrir no Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
