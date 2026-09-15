@@ -6,11 +6,13 @@ import CertificatesTab from '../admin/CertificatesTab';
 import ConfigTab from '../admin/ConfigTab';
 import { loadConfig, DEFAULT_CONFIG } from '../lib/config';
 import { getSession, logout } from '../lib/auth';
+import SpeakersTab from '../admin/SpeakersTab';
 
 const TABS = [
   { id: 'inscricoes', label: 'Inscrições' },
   { id: 'certificados', label: 'Certificados' },
-  { id: 'configuracoes', label: 'Configurações' }
+  { id: 'configuracoes', label: 'Configurações' },
+  { id: 'palestrantes', label: 'Palestrantes' }
 ];
 
 export default function AdminPage() {
@@ -78,6 +80,7 @@ export default function AdminPage() {
         <div className="tab-panel">
           {tab === 'inscricoes' && <RegistrationsTab config={config} />}
           {tab === 'certificados' && <CertificatesTab config={config} />}
+          {tab === 'palestrantes' && <SpeakersTab />}
           {tab === 'configuracoes' && <ConfigTab config={config} onConfigSaved={setConfig} />}
         </div>
       </div>

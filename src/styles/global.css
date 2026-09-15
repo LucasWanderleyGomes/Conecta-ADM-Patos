@@ -200,6 +200,11 @@ section{padding:clamp(52px,8vw,96px) 0;}
   font-family:'Montserrat',sans-serif; font-size:22px; font-weight:700; color:var(--white);
   flex:none;
 }
+
+.avatar-photo{
+  object-fit:cover; background:var(--paper-2);
+}
+
 @media(max-width:820px){.avatar{width:56px;height:56px;font-size:18px; grid-area:avatar;}}
 .speaker-name{font-family:'Montserrat',sans-serif; font-weight:700; font-size:17px; text-transform:none;}
 .speaker-role{font-size:13px; color:var(--teal); margin-top:3px; text-transform:none;}

@@ -41,17 +41,19 @@ export async function loadConfig() {
 
 export async function saveConfig(config) {
   if (supabaseEnabled) {
-    const { error } = await supabase.from('event_config').upsert({
-      id: 1,
-      event_name: config.eventName,
-      date_label: config.dateLabel,
-      time_label: config.timeLabel,
-      location_label: config.locationLabel,
-      capacity: config.capacity,
-      event_end: config.eventEndISO,
-      certificates_released: config.certificatesReleased,
-      updated_at: new Date().toISOString()
-    });
+    const { error } = await supabase
+      .from('event_config')
+      .update({
+        event_name: config.eventName,
+        date_label: config.dateLabel,
+        time_label: config.timeLabel,
+        location_label: config.locationLabel,
+        capacity: config.capacity,
+        event_end: config.eventEndISO,
+        certificates_released: config.certificatesReleased,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', 1);
     if (error) throw error;
     return;
   }
