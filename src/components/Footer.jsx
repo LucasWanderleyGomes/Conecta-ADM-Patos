@@ -2,8 +2,8 @@ export default function Footer() {
   return (
     <footer>
       <div className="wrap foot-inner">
-        <div>Conecta ADM Patos — conteúdo de exemplo, edite com os dados reais do seu evento.</div>
-        <div>Dúvidas: contato@conectaadmpatos.com.br</div>
+        <div>Conecta ADM Patos — Pagina exemplo e testes</div>
+        <div>Dúvidas: turma1adm.unifip@gmail.com</div>
       </div>
     </footer>
   );

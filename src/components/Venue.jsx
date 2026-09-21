@@ -3,7 +3,7 @@
 // buscar por texto — o mapa nunca erra o lugar.
 const VENUE_LAT = -7.0198851;
 const VENUE_LNG = -37.2789069;
-const VENUE_MAPS_LINK = 'https://maps.app.goo.gl/DdaLQtUvbPZ8VSNW8';
+const VENUE_MAPS_LINK = 'https://maps.app.goo.gl/J4L3dT1Qn4an5wcFA';
 
 export default function Venue({ config }) {
   return (
@@ -15,7 +15,7 @@ export default function Venue({ config }) {
         <div className="venue">
           <div className="venue-card">
             <h3>{config.locationLabel}</h3>
-            <div className="addr">Auditório Master das FIP · Patos, PB</div>
+            <div className="addr">UNIFIP — Auditório Paulo Bonavides · Patos, PB</div>
             <ul className="venue-list">
               <li><b>Credenciamento</b> A partir das 18h00, no saguão de entrada.</li>
               <li><b>Estacionamento</b> Vagas gratuitas no pátio interno do campus.</li>
