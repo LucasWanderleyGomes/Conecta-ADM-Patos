@@ -6,7 +6,7 @@ const LINKS = [
   { id: 'programacao', label: 'Programação' },
   { id: 'local', label: 'Local' },
   { id: 'inscricao', label: 'Inscrição' },
-  { id: 'certificado', label: 'Certificado' }
+  
 ];
 
 export default function Nav() {

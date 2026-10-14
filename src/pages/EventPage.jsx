@@ -6,7 +6,7 @@ import Speakers from '../components/Speakers';
 import ProgramList from '../components/ProgramList';
 import Venue from '../components/Venue';
 import RegisterCta from '../components/RegisterCta';
-import CertificateSection from '../components/CertificateSection';
+
 import ClosingBand from '../components/ClosingBand';
 import Footer from '../components/Footer';
 import { loadConfig, DEFAULT_CONFIG } from '../lib/config';
@@ -35,7 +35,6 @@ export default function EventPage() {
       <ProgramList />
       <Venue config={config} />
       <RegisterCta registeredCount={registeredCount} />
-      <CertificateSection config={config} />
       <ClosingBand />
       <Footer />
     </>
