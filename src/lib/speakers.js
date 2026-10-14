@@ -60,8 +60,6 @@ export async function loadSpeakers() {
   }
 }
 
-// Salva a lista inteira de uma vez (é mais simples e evita inconsistência
-// entre linhas — o mesmo padrão já usado para a configuração do evento).
 export async function saveSpeakers(list) {
   if (supabaseEnabled) {
     const { error } = await supabase
@@ -74,9 +72,7 @@ export async function saveSpeakers(list) {
   await storeSet(KEY, JSON.stringify(list));
 }
 
-// Em produção (Supabase configurado): envia o arquivo pro Storage e
-// devolve a URL pública. Em modo demonstração: converte a imagem em
-// base64 e a devolve direto (fica embutida nos dados, só nesta sessão).
+
 export async function uploadSpeakerPhoto(file) {
   if (supabaseEnabled) {
     const ext = (file.name.split('.').pop() || 'jpg').toLowerCase();

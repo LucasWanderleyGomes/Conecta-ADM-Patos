@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginGate from '../admin/LoginGate';
 import RegistrationsTab from '../admin/RegistrationsTab';
+import SpeakersTab from '../admin/SpeakersTab';
+import QuestionsTab from '../admin/QuestionsTab';
 import CertificatesTab from '../admin/CertificatesTab';
 import ConfigTab from '../admin/ConfigTab';
 import { loadConfig, DEFAULT_CONFIG } from '../lib/config';
 import { getSession, logout } from '../lib/auth';
-import SpeakersTab from '../admin/SpeakersTab';
 
 const TABS = [
   { id: 'inscricoes', label: 'Inscrições' },
+  { id: 'perguntas', label: 'Perguntas' },
   { id: 'certificados', label: 'Certificados' },
   { id: 'configuracoes', label: 'Configurações' },
   { id: 'palestrantes', label: 'Palestrantes' }
@@ -79,8 +81,9 @@ export default function AdminPage() {
 
         <div className="tab-panel">
           {tab === 'inscricoes' && <RegistrationsTab config={config} />}
-          {tab === 'certificados' && <CertificatesTab config={config} />}
+          {tab === 'perguntas' && <QuestionsTab config={config} />}
           {tab === 'palestrantes' && <SpeakersTab />}
+          {tab === 'certificados' && <CertificatesTab config={config} />}
           {tab === 'configuracoes' && <ConfigTab config={config} onConfigSaved={setConfig} />}
         </div>
       </div>

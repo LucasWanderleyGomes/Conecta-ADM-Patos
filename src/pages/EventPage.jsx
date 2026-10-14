@@ -5,7 +5,7 @@ import About from '../components/About';
 import Speakers from '../components/Speakers';
 import ProgramList from '../components/ProgramList';
 import Venue from '../components/Venue';
-import RegisterForm from '../components/RegisterForm';
+import RegisterCta from '../components/RegisterCta';
 import CertificateSection from '../components/CertificateSection';
 import ClosingBand from '../components/ClosingBand';
 import Footer from '../components/Footer';
@@ -34,7 +34,7 @@ export default function EventPage() {
       <About />
       <ProgramList />
       <Venue config={config} />
-      <RegisterForm config={config} registeredCount={registeredCount} onRegistered={refreshCount} />
+      <RegisterCta registeredCount={registeredCount} />
       <CertificateSection config={config} />
       <ClosingBand />
       <Footer />

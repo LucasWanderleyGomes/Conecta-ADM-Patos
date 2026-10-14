@@ -1,6 +1,4 @@
-// Coordenadas do Auditório Master das FIP (Patos, PB), resolvidas a partir
-// do link do Google Maps. Usar lat/lng direto é mais confiável do que
-// buscar por texto — o mapa nunca erra o lugar.
+
 const VENUE_LAT = -7.0198851;
 const VENUE_LNG = -37.2789069;
 const VENUE_MAPS_LINK = 'https://maps.app.goo.gl/J4L3dT1Qn4an5wcFA';

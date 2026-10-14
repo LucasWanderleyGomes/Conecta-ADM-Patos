@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { findRegistrationByEmail } from '../lib/registrations';
+import { findRegistration } from '../lib/registrations';
 import { eventIsOver } from '../lib/config';
+import { formatCpf, isValidCpf } from '../lib/cpf';
 import Certificate from './Certificate';
 
 export default function CertificateSection({ config }) {
   const [email, setEmail] = useState('');
+  const [cpf, setCpf] = useState('');
   const [status, setStatus] = useState(null);
   const [record, setRecord] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -26,16 +28,21 @@ export default function CertificateSection({ config }) {
       setStatus({ type: 'error', text: 'Informe o e-mail usado na inscrição.' });
       return;
     }
+    if (!isValidCpf(cpf)) {
+      setStatus({ type: 'error', text: 'Informe um CPF válido (o mesmo usado na inscrição).' });
+      return;
+    }
 
     setLoading(true);
     try {
-      const found = await findRegistrationByEmail(cleanEmail);
+      const found = await findRegistration(cleanEmail, cpf);
       setRecord(found);
       setStatus({ type: 'ok', text: `Certificado gerado com sucesso para ${found.name}.` });
     } catch (err) {
+      // Mensagem única de propósito: não revela se o e-mail existe ou se só o CPF não confere.
       setStatus({
         type: 'error',
-        text: 'Não encontramos uma inscrição com esse e-mail. Verifique o endereço ou inscreva-se na seção acima.'
+        text: 'Não encontramos uma inscrição com esse e-mail e CPF. Confira os dados ou faça a inscrição.'
       });
     } finally {
       setLoading(false);
@@ -61,8 +68,8 @@ export default function CertificateSection({ config }) {
           </div>
 
           <p style={{ color: 'var(--ink-soft)', fontSize: 14.5, maxWidth: '60ch', textTransform: 'none' }}>
-            Informe o e-mail usado na inscrição para gerar seu certificado. O nome exibido é o mesmo
-            enviado no formulário de inscrição.
+            Informe o e-mail e o CPF usados na inscrição para gerar seu certificado. O nome exibido é o
+            mesmo enviado no formulário de inscrição.
           </p>
 
           <form className="cert-form" onSubmit={handleSubmit}>
@@ -73,6 +80,20 @@ export default function CertificateSection({ config }) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="cert-cpf">CPF</label>
+              <input
+                id="cert-cpf"
+                type="text"
+                inputMode="numeric"
+                autoComplete="off"
+                placeholder="000.000.000-00"
+                maxLength={14}
+                value={cpf}
+                onChange={(e) => setCpf(formatCpf(e.target.value))}
                 required
               />
             </div>
