@@ -4,9 +4,7 @@ import { scrollToId } from '../lib/scroll';
 
 export default function Hero({ config, registeredCount }) {
   const vagasText =
-    registeredCount === null
-      ? `${config.capacity} disponíveis`
-      : `${registeredCount} de ${config.capacity} preenchidas`;
+    registeredCount = '${config.capacity} vagas';
 
   return (
     <header className="masthead" id="top">

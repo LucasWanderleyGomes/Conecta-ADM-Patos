@@ -9,7 +9,7 @@ export default function RegisterCta({ registeredCount }) {
       <div className="wrap">
         <div className="sec-head">
           <h2>Inscrição</h2>
-          <div className="count">{countLabel}</div>
+          
         </div>
         <div className="register-wrap">
           <div className="register-info">
