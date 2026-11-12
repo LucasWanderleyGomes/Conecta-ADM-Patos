@@ -29,7 +29,7 @@ export default function Hero({ config, registeredCount }) {
           </div>
           <div className="byline-item">
             <div className="label">Vagas</div>
-            <div className="value">{vagasText}</div>
+            <div className="value">120</div>
           </div>
         </div>
 
