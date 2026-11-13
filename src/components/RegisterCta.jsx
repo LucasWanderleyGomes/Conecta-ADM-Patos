@@ -9,15 +9,17 @@ export default function RegisterCta({ registeredCount }) {
       <div className="wrap">
         <div className="sec-head">
           <h2>Inscrição</h2>
-          
         </div>
         <div className="register-wrap">
           <div className="register-info">
             <p>
-              A inscrição é gratuita e feita em um formulário rápido. Ele pede alguns dados pessoais
+              A inscrição é <strong>solidária</strong> e feita em um formulário rápido. Ele pede alguns dados pessoais
               e perguntas sobre a sua expectativa, que ajudam a organização a preparar o encontro.
             </p>
             <ul>
+              <li>
+                <strong>Inscrição solidária:</strong> leve 1 kg de alimento não perecível no dia do evento para confirmar sua participação
+              </li>
               <li>Tenha o seu CPF à mão — ele é necessário para a inscrição</li>
               <li>Use um e-mail que você acessa: ele também será pedido no certificado</li>
               <li>Certificado liberado após o encerramento do evento</li>
@@ -26,7 +28,9 @@ export default function RegisterCta({ registeredCount }) {
 
           <div className="register-cta-card">
             <h3>Garanta a sua vaga</h3>
-            <p>Leva poucos minutos e você recebe o código de inscrição na hora.</p>
+            <p>
+              Leva poucos minutos e você recebe o código na hora. Não esqueça de levar o alimento no dia do evento!
+            </p>
             <Link to="/inscricao" className="btn btn-primary">
               Preencher formulário de inscrição
             </Link>
